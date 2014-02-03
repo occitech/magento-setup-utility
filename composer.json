@@ -1,0 +1,22 @@
+{
+    "name": "occitech/magento-installer",
+    "description": "Magento installer",
+    "license": "MIT",
+    "type": "magento-module",
+    "authors": [
+        {
+            "name": "occitech",
+            "email": "contact@occitech.fr"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "http://packages.firegento.com"
+        }
+    ],
+    "require": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+    "minimum-stability": "dev"
+}

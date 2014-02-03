@@ -10,16 +10,15 @@
 {
   "repositories": [
     {
-      "type": "vcs",
-      "url": "https://github.com/occitech/magento-installer"
-    },
-    {
       "type": "composer",
       "url": "http://packages.firegento.com"
     }
   ],
   "require": {
     "occitech/magento-installer": "dev-master"
+  },
+  "extra": {
+    "magento-root-dir": "htdocs/" // or whatever directory you want
   }
 }
 ```

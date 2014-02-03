@@ -2,12 +2,17 @@
 
 class Occitech_Installer_Model_Resource_Setup extends Mage_Core_Model_Resource_Setup
 {
-    public function createAttributeSet($label, $parentAttributeSet = null)
+    public function createProductAttributeSet($label, $parentAttributeSet = null)
     {
         $entityTypeId = Mage::getModel('eav/entity')
             ->setType('catalog_product')
             ->getTypeId();
 
+        $this->createAttributeSet($label, $entityTypeId, $parentAttributeSet);
+    }
+
+    private function createAttributeSet($label, $entityTypeId, $parentAttributeSet = null)
+    {
         $AttributeSet = Mage::getModel('eav/entity_attribute_set');
 
         $AttributeSet->setEntityTypeId($entityTypeId)

@@ -19,7 +19,7 @@
     }
   ],
   "require": {
-    "occitech/magento-installer": "dev-develop"
+    "occitech/magento-installer": "dev-master"
   }
 }
 ```

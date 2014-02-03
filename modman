@@ -1,2 +1,2 @@
-. app/code/community/Occitech/Installer
-
+code/community/Occitech/Installer app/code/community/Occitech/Installer
+etc/modules/Occitech_Installer.xml app/etc/modules/Occitech_Installer.xml

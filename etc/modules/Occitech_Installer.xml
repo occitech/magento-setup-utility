@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Occitech_Installer>
+      <active>true</active>
+      <codePool>community</codePool>
+    </Occitech_Installer>
+  </modules>
+</config>

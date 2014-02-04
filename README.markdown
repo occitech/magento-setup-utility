@@ -67,16 +67,127 @@ Note: You can also use your own Setup and extend
 
 ### Create product attribute set
 
-To create an attribute set, simply call
+```php
+<?php
+
+try {
+  $installer = $this;
+  $installer->startSetup();
+
+  $installer->createProductAttributeSet('New attribute set'); // Creates a new attribute set
+  $installer->createProductAttributeSet('New attribute set from Default', 'Default'); // create a new attribute set inheriting from the "Default" attribute set
+
+  $installer->endSetup();
+} catch(Exception $e) {
+  Mage::log($e->getMessage());
+}
+```
+
+### Create CMS Block(s)
 
 ```php
 <?php
 
 try {
   $installer = $this;
+  $installer->startSetup();
 
-  $installer->createProductAttributeSet('New attribute set'); // Creates a new attribute set
-  $installer->createProductAttributeSet('New attribute set from Default', 'Default'); // create a new attribute set inheriting from the "Default" attribute set
+  // Create multiple blocks
+  $installer->createCMSBlocks(array(
+    array(
+      'title' => 'Title Block 1',
+      'identifier' => 'block_1',
+      'content' => 'Content block 1',
+    ),
+    array(
+      'title' => 'Title Block 2',
+      'identifier' => 'block_2',
+      'content' => 'Content block 2',
+    ),
+  ));
+
+  // Create single block
+  $installer->createCMSBlock(array(
+    'title' => 'Title Block 3',
+    'identifier' => 'block_3',
+    'content' => 'Content block 3',
+  ));
+
+  $installer->endSetup();
+} catch(Exception $e) {
+  Mage::log($e->getMessage());
+}
+```
+
+### Create CMS Page(s)
+
+```php
+<?php
+
+try {
+  $installer = $this;
+  $installer->startSetup();
+
+  // Create multiple pages
+  $installer->createCMSPages(array(
+    array(
+      'title' => 'Title Page 1',
+      'identifier' => 'page_1',
+      'content' => 'Content page 1',
+    ),
+    array(
+      'title' => 'Title Page 2',
+      'identifier' => 'page_2',
+      'content' => 'Content page 2',
+    ),
+  ));
+
+  // Create single page
+  $installer->createCMSPage(array(
+    'title' => 'Title Page 3',
+    'identifier' => 'page_3',
+    'content' => 'Content page 3',
+  ));
+
+  $installer->endSetup();
+} catch(Exception $e) {
+  Mage::log($e->getMessage());
+}
+```
+
+### Update CMS Page
+
+```php
+<?php
+
+try {
+  $installer = $this;
+  $installer->startSetup();
+
+  // update page with "home" identifier
+  $installer->updateCMSPage('home', array(
+    'title' => 'New title'
+  ));
+
+  $installer->endSetup();
+} catch(Exception $e) {
+  Mage::log($e->getMessage());
+}
+```
+
+### Fetch CMS Page from it's identifier
+
+```php
+<?php
+
+try {
+  $installer = $this;
+  $installer->startSetup();
+
+  // fetch page with "home" identifier
+  $page = $installer->getCMSPage('home');
+
+  $installer->endSetup();
 } catch(Exception $e) {
   Mage::log($e->getMessage());
 }

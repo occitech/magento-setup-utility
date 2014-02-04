@@ -65,4 +65,17 @@ class Occitech_Installer_Model_Resource_Setup extends Mage_Core_Model_Resource_S
         $CMSModel->setStores(array(0));
         $CMSModel->save();
     }
+
+    public function updateCMSPage($pageIdentifier, array $pageData)
+    {
+        $CMSPage = Mage::getModel('cms/page');
+        $page = $CMSPage->load('home', 'identifier');
+        $page->setStores((array) $page->getStores());
+
+        foreach ($pageData as $key => $value) {
+            $page->{'set' . ucfirst($key)}($value);
+        }
+
+        $page->save();
+    }
 }

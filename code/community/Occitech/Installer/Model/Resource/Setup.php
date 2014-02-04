@@ -68,7 +68,7 @@ class Occitech_Installer_Model_Resource_Setup extends Mage_Core_Model_Resource_S
 
     public function updateCMSPage($pageIdentifier, array $pageData)
     {
-        $page = $this->loadCMSPage($pageIdentifier);
+        $page = $this->getCMSPage($pageIdentifier);
         $page->setStores((array) $page->getStores());
 
         foreach ($pageData as $key => $value) {
@@ -79,16 +79,10 @@ class Occitech_Installer_Model_Resource_Setup extends Mage_Core_Model_Resource_S
         $page->save();
     }
 
-    private function loadCMSPage()
+    public function getCMSPage($pageIdentifier)
     {
         $CMSPage = Mage::getModel('cms/page');
-        $page = $CMSPage->load('home', 'identifier');
+        $page = $CMSPage->load($pageIdentifier, 'identifier');
         return $page;
-    }
-
-    public function getCMSPageId($pageIdentifier)
-    {
-        $page = $this->loadCMSPage($pageIdentifier);
-        return $page->getId();
     }
 }

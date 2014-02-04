@@ -38,14 +38,31 @@ class Occitech_Installer_Model_Resource_Setup extends Mage_Core_Model_Resource_S
     public function createCMSBlock(array $block)
     {
         $CMSBlock = Mage::getModel('cms/block');
-        $CMSBlock->setData($block);
-        $CMSBlock->setStores(array(0));
-        $CMSBlock->save();
+        $this->saveCMSData($CMSBlock, $block);
     }
 
     public function createCMSBlocks(array $blocks) {
         foreach ($blocks as $block) {
             $this->createCMSBlock($block);
         }
+    }
+
+    public function createCMSPage(array $block)
+    {
+        $CMSPage = Mage::getModel('cms/page');
+        $this->saveCMSData($CMSPage, $block);
+    }
+
+    public function createCMSPages(array $blocks) {
+        foreach ($blocks as $block) {
+            $this->createCMSBlock($block);
+        }
+    }
+
+    private function saveCMSData(Mage_Core_Model_Abstract $CMSModel, array $CMSData)
+    {
+        $CMSModel->setData($CMSData);
+        $CMSModel->setStores(array(0));
+        $CMSModel->save();
     }
 }

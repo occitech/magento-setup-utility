@@ -51,7 +51,7 @@ Finally, tell your module to use `Occitech_Installer`'s setup class:
     <resources>
       <vendor_module>
         <setup>
-          <module>Occitech_Installer</module>
+          <module>Vendor_Module</module>
           <class>Occitech_Installer_Model_Resource_Setup</class>
         </setup>
       </vendor_module>

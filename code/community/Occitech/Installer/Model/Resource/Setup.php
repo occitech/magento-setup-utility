@@ -34,4 +34,18 @@ class Occitech_Installer_Model_Resource_Setup extends Mage_Core_Model_Resource_S
         $AttributeSet->initFromSkeleton($parentAttributeId)
             ->save();
     }
+
+    public function createCMSBlock(array $block)
+    {
+        $CMSBlock = Mage::getModel('cms/block');
+        $CMSBlock->setData($block);
+        $CMSBlock->setStores(array(0));
+        $CMSBlock->save();
+    }
+
+    public function createCMSBlocks(array $blocks) {
+        foreach ($blocks as $block) {
+            $this->createCMSBlock($block);
+        }
+    }
 }

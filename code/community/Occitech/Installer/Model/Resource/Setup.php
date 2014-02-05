@@ -69,14 +69,13 @@ class Occitech_Installer_Model_Resource_Setup extends Mage_Core_Model_Resource_S
     public function updateCMSPage($pageIdentifier, array $pageData)
     {
         $page = $this->getCMSPage($pageIdentifier);
-        $page->setStores((array) $page->getStores());
+        $this->saveCMSData($page, $pageData);
+    }
 
-        foreach ($pageData as $key => $value) {
-            $method = 'set' . str_replace(' ', '', ucwords(str_replace('_', ' ', $key)));
-            $page->{$method}($value);
-        }
-
-        $page->save();
+    public function updateCMSBlock($blockIdentifier, array $blockData)
+    {
+        $block = $this->getCMSBlock($blockIdentifier);
+        $this->saveCMSData($block, $blockData);
     }
 
     public function getCMSPage($pageIdentifier)

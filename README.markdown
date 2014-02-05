@@ -155,7 +155,7 @@ try {
 }
 ```
 
-### Update CMS Page
+### Update CMS Item
 
 ```php
 <?php
@@ -167,6 +167,11 @@ try {
   // update page with "home" identifier
   $installer->updateCMSPage('home', array(
     'title' => 'New title'
+  ));
+
+  // update block with "block_1" identifier
+  $installer->updateCMSPage('block_1', array(
+    'content' => 'New content'
   ));
 
   $installer->endSetup();

@@ -85,7 +85,7 @@ class Occitech_Installer_Model_Resource_Setup extends Mage_Core_Model_Resource_S
 
     public function getCMSBlock($blockIdentifier)
     {
-        return $this->getCMSObject('block', $pageIdentifier);
+        return $this->getCMSObject('block', $blockIdentifier);
     }
 
     private function getCMSObject($CMSType, $identifier)

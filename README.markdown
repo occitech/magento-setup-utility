@@ -175,7 +175,7 @@ try {
 }
 ```
 
-### Fetch CMS Page from it's identifier
+### Fetch CMS item from it's identifier
 
 ```php
 <?php
@@ -186,6 +186,9 @@ try {
 
   // fetch page with "home" identifier
   $page = $installer->getCMSPage('home');
+
+  // fetch block with "block_1" identifier
+  $page = $installer->getCMSPage('block_1');
 
   $installer->endSetup();
 } catch(Exception $e) {

@@ -81,8 +81,18 @@ class Occitech_Installer_Model_Resource_Setup extends Mage_Core_Model_Resource_S
 
     public function getCMSPage($pageIdentifier)
     {
-        $CMSPage = Mage::getModel('cms/page');
-        $page = $CMSPage->load($pageIdentifier, 'identifier');
-        return $page;
+        return $this->getCMSObject('page', $pageIdentifier);
+    }
+
+    public function getCMSBlock($blockIdentifier)
+    {
+        return $this->getCMSObject('block', $pageIdentifier);
+    }
+
+    private function getCMSObject($CMSType, $identifier)
+    {
+        $CMSObject = Mage::getModel('cms/' . $CMSType);
+        $CMSItem = $CMSObject->load($identifier, 'identifier');
+        return $CMSItem;
     }
 }

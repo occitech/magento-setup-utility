@@ -1,6 +1,6 @@
-# Occitech Magento Installer
+# Occitech Setup Utility
 
-# WARNING VERY EARLY RELEASE
+Disclaimer : This is an very early release, use it at your own risks. Feedback welcomed.
 
 ## Installation
 

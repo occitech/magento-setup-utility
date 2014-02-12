@@ -1,6 +1,6 @@
 {
-    "name": "occitech/magento-installer",
-    "description": "Magento installer",
+    "name": "occitech/magento-setup-utility",
+    "description": "Magento Setup Utility",
     "license": "MIT",
     "type": "magento-module",
     "authors": [

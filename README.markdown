@@ -15,7 +15,7 @@ Disclaimer : This is an very early release, use it at your own risks. Feedback w
     }
   ],
   "require": {
-    "occitech/magento-installer": "dev-master"
+    "occitech/magento-setup-utility": "dev-master"
   },
   "extra": {
     "magento-root-dir": "htdocs/" // or whatever directory you want
